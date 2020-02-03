@@ -10,9 +10,11 @@ import krogerMockup from "./kroger.png";
 import blobBandMockup from "./blobBand.png";
 import madOptimistMockup from "./madOptimist.png";
 import washmatesMockup from "./washmates.png";
+import educatingFromTheGroundUpMockup from "./educatingFromTheGroundUp.png";
 import email from "./email.svg";
 
 export {
+  educatingFromTheGroundUpMockup,
   email,
   bannerImage,
   instagramLogo,

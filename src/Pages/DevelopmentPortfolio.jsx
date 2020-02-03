@@ -3,6 +3,7 @@ import injectSheet from "react-jss";
 import {
   krogerMockup,
   blobBandMockup,
+  educatingFromTheGroundUpMockup,
   madOptimistMockup,
   washmatesMockup,
 } from "../images";
@@ -69,6 +70,33 @@ const DevelopmentPortfolio = ({ classes }) => (
             <li>
               Lead company-wide initiatives through helping integrate with third
               party services and regularly contributing to weekly UI meetings
+            </li>
+          </Text>
+        </div>
+      </div>
+      <div className={classes.mockUpContainer}>
+        <PortfolioMockupContainer
+          imageUrl={educatingFromTheGroundUpMockup}
+          backgroundColor="#4B604D"
+          href="http://www.educatingfromthegroundup.org/"
+        />
+        <div className={classes.mockUpContainerTextContainer}>
+          <a
+            target="blank"
+            className={classes.mockUpContainerHeading}
+            href="http://www.educatingfromthegroundup.org/"
+          >
+            <Text accent>
+              Educating From The Ground Up - Freelance Developer
+            </Text>
+          </a>
+          <Text>
+            <i>Technologies: React, Redux, HTML, CSS, AWS</i>
+          </Text>
+          <Text Tag="ul" className={classes.mockupList}>
+            <li>
+              Developed and deployed a web app with interactive maps for Miami
+              University, OH
             </li>
           </Text>
         </div>

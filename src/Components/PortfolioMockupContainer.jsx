@@ -25,6 +25,9 @@ const styles = {
     justifyContent: "center",
     flexShrink: 0,
     margin: "auto",
+    "@media (min-width: 1024px)": {
+      margin: 0,
+    },
   },
   image: {
     width: "100%",
