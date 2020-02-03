@@ -6,8 +6,14 @@ import profileImage from "./profileImage.jpg";
 import parisThumbnail from "./parisThumbnail.png";
 import oahuThumbnail from "./oahuThumbnail.png";
 import smnpThumbnail from "./smnpThumbnail.png";
+import krogerMockup from "./kroger.png";
+import blobBandMockup from "./blobBand.png";
+import madOptimistMockup from "./madOptimist.png";
+import washmatesMockup from "./washmates.png";
+import email from "./email.svg";
 
 export {
+  email,
   bannerImage,
   instagramLogo,
   linkedInLogo,
@@ -16,4 +22,8 @@ export {
   parisThumbnail,
   oahuThumbnail,
   smnpThumbnail,
+  krogerMockup,
+  washmatesMockup,
+  madOptimistMockup,
+  blobBandMockup,
 };

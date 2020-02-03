@@ -2,19 +2,27 @@ import React from "react";
 import cx from "classnames";
 import injectSheet from "react-jss";
 
-const Text = ({ className, classes, children, accent, ...props }) => (
-  <p
+const Text = ({
+  className,
+  classes,
+  children,
+  accent,
+  Tag = "p",
+  ...props
+}) => (
+  <Tag
     className={cx(className, classes.text, { [classes.accent]: accent })}
     {...props}
   >
     {children}
-  </p>
+  </Tag>
 );
 
 const styles = {
   text: {
     fontFamily: "montserrat",
-    margin: 0,
+    margin: "0 auto",
+    maxWidth: 1000,
   },
   accent: {
     fontFamily: "norwester",

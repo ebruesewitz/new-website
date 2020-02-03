@@ -1,26 +1,35 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
-import instagramLogo from "../images/instagramLogo.svg";
-import linkedInLogo from "../images/linkedInLogo.svg";
-import menu from "../images/menu.svg";
+import { instagramLogo, email, linkedInLogo } from "../images";
+// import menu from "../images/menu.svg";
 
 import { THEME_COLORS } from "../constants";
 
 const HeaderWithClasses = ({ classes, isOpen, onMenuClick, children }) => (
   <div className={classes.container}>
     <div className={classes.socialContainer}>
-      <Link to={`/`} className={classes.socialLink}>
+      <a
+        href="https://www.instagram.com/createdbylis/"
+        target="blank"
+        className={classes.socialLink}
+      >
         <img src={instagramLogo} alt="visit my instagram" />
-      </Link>
-      <Link to={`/`} className={classes.socialLink}>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/elisabethbruesewitz/"
+        target="blank"
+        className={classes.socialLink}
+      >
         <img src={linkedInLogo} alt="visit my linkedIn" />
-      </Link>
+      </a>
     </div>
     <Link to={"/"} className={classes.title}>
       created by lis
     </Link>
-    <img src={menu} alt="" className={classes.menu} />
+    <a href="mailto:elisabethbruesewitz@gmail.com">
+      <img src={email} alt="" className={classes.menu} />
+    </a>
   </div>
 );
 
@@ -48,8 +57,10 @@ const styles = {
     },
   },
   menu: {
-    height: 12,
-    width: "auto",
+    width: 30,
+    marginLeft: 34,
+    height: "auto",
+    cursor: "pointer",
   },
   title: {
     color: THEME_COLORS.ACCENT_ONE,

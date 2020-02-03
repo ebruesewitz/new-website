@@ -8,6 +8,7 @@ import SmartMenu from "./SmartMenu";
 import SummarySection from "./SummarySection";
 import Text from "./Text";
 import Thumbnail from "./Thumbnail";
+import PortfolioMockupContainer from "./PortfolioMockupContainer";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   SummarySection,
   Text,
   Thumbnail,
+  PortfolioMockupContainer,
 };

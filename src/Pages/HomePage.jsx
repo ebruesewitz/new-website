@@ -1,20 +1,8 @@
 import React from "react";
 import injectSheet from "react-jss";
-import {
-  Header,
-  Button,
-  Text,
-  SummarySection,
-  Input,
-  Thumbnail,
-} from "../Components";
-import {
-  profileImage,
-  bannerImage,
-  parisThumbnail,
-  smnpThumbnail,
-  oahuThumbnail,
-} from "../images";
+import { Link } from "react-router-dom";
+import { Header, Button, Text, SummarySection } from "../Components";
+import { profileImage, bannerImage } from "../images";
 import { THEME_COLORS } from "../constants";
 import { DevelopmentIcon, PhotographyIcon, TravelIcon } from "../Icons";
 
@@ -32,7 +20,9 @@ const HomePageWithClasses = ({ classes }) => (
         <span className={classes.descriptionText}>
           fearless traveler, passionate creative, and innovative developer.
         </span>
-        <Button>work with me</Button>
+        <Link to={"/work/development"}>
+          <Button>work with me</Button>
+        </Link>
       </div>
     </div>
     <div className={classes.bio}>
@@ -45,10 +35,10 @@ const HomePageWithClasses = ({ classes }) => (
         in doing work that matters.
       </Text>
       <Text>
-        When I’m not coding, you can find me taking pictures, reading at a local
-        coffee shop, or planning my next big trip. I’ve been lucky enough to
-        have the flexibility to travel frequently over the past few years, and I
-        love sharing those experiences with others.
+        When I’m not coding, you can find me reading at a local coffee shop,
+        running, climbing, or planning my next big trip. I’ve been lucky enough
+        to have the flexibility to travel frequently over the past few years,
+        and I love sharing those experiences with others.
       </Text>
       <Text>
         Whether you’re here to check out my travel advice or are considering
@@ -65,9 +55,9 @@ const HomePageWithClasses = ({ classes }) => (
           world. Curious about how I travel on a budget? Interested in some of
           the places I’ve been?
         </Text>
-        <Button kind="primaryReverse" className={classes.summarySectionButton}>
-          read my blog
-        </Button>
+        <Text accent className={classes.summarySectionComingSoon}>
+          Blog coming soon
+        </Text>
       </SummarySection>
       <SummarySection Icon={DevelopmentIcon} headingText="Development">
         <Text>
@@ -75,49 +65,24 @@ const HomePageWithClasses = ({ classes }) => (
           building the systems, databases, and apps to support websites too.
           Have a project for me?
         </Text>
-        <Button kind="primaryReverse" className={classes.summarySectionButton}>
-          view my work
-        </Button>
+        <Link to={"/work/development"}>
+          <Button
+            kind="primaryReverse"
+            className={classes.summarySectionButton}
+          >
+            view my work
+          </Button>
+        </Link>
       </SummarySection>
       <SummarySection Icon={PhotographyIcon} headingText="Photography">
         <Text>
           I love capturing the essence of a place or a person through a simple
           photo. Interested in setting up a photography session?
         </Text>
-        <Button kind="primaryReverse" className={classes.summarySectionButton}>
-          see my photos
-        </Button>
+        <Text accent className={classes.summarySectionComingSoon}>
+          Portfolio coming soon
+        </Text>
       </SummarySection>
-    </div>
-    <div className={classes.newsletterContainer}>
-      <Text className={classes.newsletterContainerText}>
-        join the mailing list &amp; keep
-        <br /> up to date on my latest adventures!
-      </Text>
-      <Input placeholder="email address"></Input>
-      <Button>Subscribe</Button>
-    </div>
-    <div className={classes.portfolio}>
-      <span className={classes.portfolioHeading}>My Work</span>
-      <div className={classes.portfolioContent}>
-        <div className={classes.blogThumbnailContainer}>
-          <Thumbnail
-            className={classes.blogThumbnail}
-            src={parisThumbnail}
-            href="/blog/paris"
-          />
-          <Thumbnail
-            className={classes.blogThumbnail}
-            src={smnpThumbnail}
-            href="/blog/smnp"
-          />
-          <Thumbnail
-            className={classes.blogThumbnail}
-            src={oahuThumbnail}
-            href="/blog/oahu"
-          />
-        </div>
-      </div>
     </div>
   </div>
 );
@@ -129,23 +94,46 @@ const styles = {
   summarySectionsContainer: {
     padding: 88,
     display: "flex",
-    alignItems: "stretch",
+    flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center",
     "& > * + *": {
-      marginLeft: 80,
+      marginTop: 24,
+    },
+    "@media (min-width: 1024px)": {
+      flexDirection: "row",
+      alignItems: "stretch",
+      "& > * + *": {
+        marginLeft: 80,
+      },
     },
   },
   summarySectionButton: {
     marginTop: 32,
   },
+  summarySectionComingSoon: {
+    color: THEME_COLORS.ACCENT_ONE,
+    marginTop: 32,
+    lineHeight: "48px",
+  },
   introSection: {
-    padding: 80,
+    padding: 24,
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
+    padding: 48,
+    "@media (min-width: 1024px)": {
+      flexDirection: "row",
+      padding: 80,
+    },
   },
   profileImage: {
-    height: 600,
-    width: "auto",
+    height: "auto",
+    width: "50%",
+    "@media (min-width: 1024px)": {
+      height: 600,
+      width: "auto",
+    },
   },
   title: {
     fontFamily: "norwester",
@@ -155,8 +143,12 @@ const styles = {
   introText: {
     display: "flex",
     flexDirection: "column",
-    width: 360,
-    marginLeft: 80,
+    marginTop: 24,
+    marginLeft: 0,
+    maxWidth: 360,
+    "@media (min-width: 1024px)": {
+      marginLeft: 80,
+    },
   },
   descriptionText: {
     fontSize: 16,
@@ -167,17 +159,21 @@ const styles = {
     backgroundColor: THEME_COLORS.ACCENT_TWO,
     color: THEME_COLORS.WHITE,
     width: "100%",
-    padding: 80,
+    padding: 48,
     boxSizing: "border-box",
     fontSize: 16,
     letterSpacing: 1.3,
     "& > * + *": {
       marginTop: "2em",
     },
+    "@media (min-width: 1024px)": {
+      padding: 80,
+    },
   },
   banner: {
     width: "100vw",
-    height: "80vh",
+    minHeight: "80vh",
+    padding: 24,
     backgroundImage: `url(${bannerImage})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -192,46 +188,12 @@ const styles = {
     justifyContent: "center",
     "& > *": {
       display: "block",
-      width: "57%",
     },
-  },
-  newsletterContainer: {
-    backgroundColor: THEME_COLORS.BROWN_TWO,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "48px 16px",
-    "& > *+*": {
-      marginLeft: 32,
+    "@media (min-width: 481px)": {
+      "& > *": {
+        width: "57%",
+      },
     },
-  },
-  newsletterContainerText: {
-    color: THEME_COLORS.WHITE,
-    textAlign: "center",
-  },
-  portfolio: {
-    padding: 64,
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  portfolioHeading: {
-    fontFamily: "norwester",
-    fontSize: 72,
-    marginBottom: 72,
-  },
-  portfolioContent: {
-    width: "100%",
-  },
-  blogThumbnailContainer: {
-    width: "55%",
-    "&> *+*": {
-      marginTop: 24,
-    },
-  },
-  blogThumbnail: {
-    width: "100%",
   },
 };
 
